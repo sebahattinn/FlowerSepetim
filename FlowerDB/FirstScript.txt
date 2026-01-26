@@ -1,0 +1,53 @@
+-- 1. Veritabanını Oluştur
+CREATE DATABASE CicekSepetiDb;
+GO
+USE CicekSepetiDb;
+GO
+
+-- 2. Roller Tablosu (Admin, User vs.)
+CREATE TABLE Roles (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    RoleName NVARCHAR(50) NOT NULL UNIQUE
+);
+
+-- 3. Kullanıcılar Tablosu (Şifreler Hash'li tutulacak!)
+CREATE TABLE Users (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    RoleId INT NOT NULL,
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash NVARCHAR(MAX) NOT NULL, -- Salt + Hash
+    PasswordSalt NVARCHAR(MAX) NOT NULL,
+    RefreshToken NVARCHAR(100) NULL,
+    RefreshTokenExpiryTime DATETIME NULL,
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    IsActive BIT DEFAULT 1,
+    CONSTRAINT FK_Users_Roles FOREIGN KEY (RoleId) REFERENCES Roles(Id)
+);
+
+-- 4. Kategoriler Tablosu
+CREATE TABLE Categories (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Slug NVARCHAR(100) NOT NULL UNIQUE, -- URL dostu isim (orn: kirmizi-gul)
+    IsActive BIT DEFAULT 1
+);
+
+-- 5. Çiçekler (Ürünler) Tablosu
+CREATE TABLE Flowers (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    CategoryId INT NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(MAX) NULL, -- Özellikleri buraya detaylı yazabiliriz
+    Color NVARCHAR(50) NULL,
+    Price DECIMAL(18,2) NOT NULL,
+    StockQuantity INT NOT NULL DEFAULT 0,
+    ImageUrl NVARCHAR(500) NULL,
+    IsActive BIT DEFAULT 1,
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    CONSTRAINT FK_Flowers_Categories FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+);
+
+-- Başlangıç Verilerini Ekleme (Seed Data)
+INSERT INTO Roles (RoleName) VALUES ('Admin'), ('Customer');

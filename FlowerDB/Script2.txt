@@ -1,0 +1,8 @@
+USE CicekSepetiDb;
+
+-- Eğer hiç kategori yoksa bir tane 'Genel' kategorisi ekleyelim
+INSERT INTO Categories (Name, Slug, IsActive) 
+VALUES ('Genel Çiçekler', 'genel-cicekler', 1);
+
+-- Eklenen kategorinin ID'sini görelim (Muhtemelen 1 olacaktır)
+SELECT * FROM Categories;

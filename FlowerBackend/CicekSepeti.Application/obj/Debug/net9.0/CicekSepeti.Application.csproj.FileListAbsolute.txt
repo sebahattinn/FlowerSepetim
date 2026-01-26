@@ -1,0 +1,15 @@
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.csproj.AssemblyReference.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.AssemblyInfoInputs.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.AssemblyInfo.cs
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.csproj.CoreCompileInputs.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\bin\Debug\net9.0\CicekSepeti.Application.deps.json
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\bin\Debug\net9.0\CicekSepeti.Application.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\bin\Debug\net9.0\CicekSepeti.Application.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\bin\Debug\net9.0\CicekSepeti.Domain.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\bin\Debug\net9.0\CicekSepeti.Domain.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSep.F5A75CC5.Up2Date
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\refint\CicekSepeti.Application.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\ref\CicekSepeti.Application.dll

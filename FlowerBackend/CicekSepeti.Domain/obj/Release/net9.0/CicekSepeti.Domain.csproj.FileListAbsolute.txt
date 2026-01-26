@@ -1,0 +1,11 @@
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\bin\Release\net9.0\CicekSepeti.Domain.deps.json
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\bin\Release\net9.0\CicekSepeti.Domain.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\bin\Release\net9.0\CicekSepeti.Domain.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\CicekSepeti.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\CicekSepeti.Domain.AssemblyInfoInputs.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\CicekSepeti.Domain.AssemblyInfo.cs
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\CicekSepeti.Domain.csproj.CoreCompileInputs.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\CicekSepeti.Domain.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\refint\CicekSepeti.Domain.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\CicekSepeti.Domain.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Release\net9.0\ref\CicekSepeti.Domain.dll

@@ -1,0 +1,15 @@
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\bin\Release\net9.0\CicekSepeti.Infrastructure.deps.json
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\bin\Release\net9.0\CicekSepeti.Infrastructure.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\bin\Release\net9.0\CicekSepeti.Infrastructure.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\bin\Release\net9.0\CicekSepeti.Domain.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\bin\Release\net9.0\CicekSepeti.Domain.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.AssemblyInfo.cs
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSep.737B66BB.Up2Date
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\refint\CicekSepeti.Infrastructure.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.pdb
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\ref\CicekSepeti.Infrastructure.dll

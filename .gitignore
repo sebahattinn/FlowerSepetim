@@ -1,0 +1,23 @@
+# --- SENSITIVE / GIZLI DOSYALAR ---
+**/appsettings.json
+**/launchSettings.json
+**/appsettings.Development.json
+
+# --- BACKEND (.NET) ---
+FlowerBackend/bin/
+FlowerBackend/obj/
+.vs/
+*.user
+*.pdb
+*.suo
+
+# --- FRONTEND (Vue/Node) ---
+FlowerFrontend/node_modules/
+FlowerFrontend/dist/
+FlowerFrontend/.env
+FlowerFrontend/.env.local
+.DS_Store
+
+# --- GENEL ---
+.vscode/
+Thumbs.db

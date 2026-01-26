@@ -1,0 +1,13 @@
+ALTER TABLE Flowers 
+ADD IsFeatured BIT DEFAULT 0 NOT NULL;
+
+
+
+-- 1. Ayar Tablosu Oluştur
+CREATE TABLE SiteSettings (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    IsMaintenanceMode BIT DEFAULT 0 NOT NULL -- 0: Açık, 1: Bakım Modu
+);
+
+-- 2. Varsayılan Ayarı Ekle (Başlangıçta Açık Olsun)
+INSERT INTO SiteSettings (IsMaintenanceMode) VALUES (0);
