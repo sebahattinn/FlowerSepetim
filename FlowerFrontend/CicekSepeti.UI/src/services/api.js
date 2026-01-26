@@ -4,7 +4,7 @@ import router from '../router'
 // 🔗 Backend Base URL
 const api = axios.create({
  //aseURL: 'https://localhost:7123/api',
-    baseURL: 'https://sebahattin16-001-site1.jtempurl.com/api',
+    baseURL: 'http://sebahattin16-001-site1.jtempurl.com/api',
 })
 
 /* ================================
