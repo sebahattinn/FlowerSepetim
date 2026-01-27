@@ -3,6 +3,10 @@
     {
       "source": "/api/:match*",
       "destination": "http://sebahattin16-001-site1.jtempurl.com/api/:match*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

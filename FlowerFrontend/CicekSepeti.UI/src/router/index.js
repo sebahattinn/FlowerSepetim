@@ -5,7 +5,9 @@ import RegisterView from '../views/RegisterView.vue'
 import FlowerDetailView from '../views/FlowerDetailView.vue'
 import CollectionView from '../views/CollectionView.vue'
 import AdminDashboardView from '../views/AdminDashboardView.vue'
-import NotFoundView from '../views/NotFoundView.vue' // 👈 404 IMPORT
+import NotFoundView from '../views/NotFoundView.vue'
+import UnauthorizedView from '../views/UnauthorizedView.vue' // 👈 401 IMPORT
+import ForbiddenView from '../views/ForbiddenView.vue' // 👈 403 IMPORT
 import { useAuthStore } from '../stores/auth'
 
 const router = createRouter({
@@ -78,6 +80,24 @@ const router = createRouter({
       }
     },
 
+    // ⚠️ HATA SAYFALARI
+    {
+      path: '/401',
+      name: 'unauthorized',
+      component: UnauthorizedView,
+      meta: {
+        hideFooter: true
+      }
+    },
+    {
+      path: '/403',
+      name: 'forbidden',
+      component: ForbiddenView,
+      meta: {
+        hideFooter: true
+      }
+    },
+
     // ❌ 404 – EN SONA!
     {
       path: '/:pathMatch(.*)*',
@@ -91,7 +111,7 @@ const router = createRouter({
 })
 
 // 🛡️ GLOBAL ROUTE GUARD
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const authStore = useAuthStore()
 
   // 🧠 Token var ama user yoksa → decode et
@@ -99,15 +119,14 @@ router.beforeEach((to, from, next) => {
     authStore.decodeAndSetUser()
   }
 
-  // 1️⃣ Auth gerekli sayfalar
+  // 1️⃣ Auth gerekli sayfalar → 401 sayfasına yönlendir
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    return next('/login')
+    return next('/401')
   }
 
-  // 2️⃣ Rol kontrolü
+  // 2️⃣ Rol kontrolü → 403 sayfasına yönlendir
   if (to.meta.role && authStore.userRole !== to.meta.role) {
-    alert('Bu sayfaya erişim yetkiniz yok!')
-    return next('/')
+    return next('/403')
   }
 
   // 3️⃣ Misafir sayfalar (login/register)

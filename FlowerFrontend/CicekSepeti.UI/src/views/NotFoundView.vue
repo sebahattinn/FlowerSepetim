@@ -6,10 +6,11 @@
       <div class="w-full max-w-6xl flex flex-col md:flex-row gap-12 items-center">
         
         <div class="w-full md:w-1/2 text-center md:text-left">
-          <h1 class="text-[150px] leading-none font-serif font-bold text-[#1B4D3E] opacity-90">404</h1>
-          <h2 class="text-4xl font-serif text-[#1B4D3E] mb-6">Sayfa Bulunamadı</h2>
-          <p class="text-gray-500 text-lg mb-8 font-light">
-            Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir. 
+          <div class="text-8xl mb-4">🌸</div>
+          <h1 class="text-5xl font-serif text-[#1B4D3E] mb-4 font-bold">Sayfa Bulunamadı</h1>
+          <p class="text-gray-600 text-xl mb-8 font-light leading-relaxed">
+            Aradığınız sayfa taşınmış, silinmiş veya <strong class="text-[#1B4D3E]">hiç var olmamış</strong> olabilir.
+            <br>
             Ama merak etmeyin, biz buradayız!
           </p>
           <router-link to="/" class="btn bg-[#1B4D3E] text-white px-8 py-3 rounded-sm hover:bg-[#143d30] transition shadow-lg">
