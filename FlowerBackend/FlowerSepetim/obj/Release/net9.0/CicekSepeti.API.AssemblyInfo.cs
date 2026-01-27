@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CicekSepeti.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2229abc10b88126a4d681a8b13b71118afd9a963")]
 [assembly: System.Reflection.AssemblyProductAttribute("CicekSepeti.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CicekSepeti.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

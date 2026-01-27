@@ -31,7 +31,7 @@ namespace CicekSepeti.Infrastructure.Helpers
                 .Replace("ş", "s")
                 .Replace("ö", "o")
                 .Replace("ç", "c")
-                .Trim() // Baştaki sondaki boşlukları sil
+                .Trim() 
                 .Replace(" ", "-") // Boşlukları tire yap
                 .Replace("--", "-"); // Çift tireleri tek yap
         }

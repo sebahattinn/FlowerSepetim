@@ -9,3 +9,4 @@ C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\D
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Debug\net9.0\refint\CicekSepeti.Domain.dll
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Debug\net9.0\CicekSepeti.Domain.pdb
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Debug\net9.0\ref\CicekSepeti.Domain.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Domain\obj\Debug\net9.0\CicekSepeti.Domain.sourcelink.json

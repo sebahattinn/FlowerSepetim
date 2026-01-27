@@ -81,7 +81,6 @@ C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\CicekSep.6C20D9FA.Up2Date
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\CicekSepeti.API.dll
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\refint\CicekSepeti.API.dll
@@ -92,3 +91,4 @@ C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\bin\Debug\
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\bin\Debug\net9.0\FluentValidation.dll
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Debug\net9.0\CicekSepeti.API.sourcelink.json

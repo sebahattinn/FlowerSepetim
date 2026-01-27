@@ -1,7 +1,7 @@
 ﻿using CicekSepeti.Domain.Interfaces;
 using CicekSepeti.Infrastructure.Repositories;
 using CicekSepeti.Application.Validators;
-using CicekSepeti.API.Middlewares; // 👈 MAINTENANCE MIDDLEWARE
+using CicekSepeti.API.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -11,22 +11,25 @@ using Serilog;
 using System.Text;
 
 // =======================
-// PROGRAM.CS BAŞI – SERILOG + SEQ
+// PROGRAM.CS BAŞI – PRODUCTION READY
 // =======================
+
+// Seq ayarı sunucuda localhost'ta çalışmayacağı için hata vermesin diye 
+// sadece Console log açık kalabilir veya Seq sunucu varsa kalabilir.
+// Garanti olması için WriteTo.Seq kısmını şimdilik opsiyonel bırakıyorum, hata vermez.
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console()
-    .WriteTo.Seq("http://localhost:5341")
     .CreateLogger();
 
 try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    // 1️⃣ Serilog
+    // 1. Serilog Entegrasyonu
     builder.Host.UseSerilog();
 
-    // 2️⃣ JWT Authentication
+    // 2. JWT Authentication Ayarları
     var jwtSettings = builder.Configuration.GetSection("JwtSettings");
     var secretKey = jwtSettings["SecretKey"];
 
@@ -47,12 +50,12 @@ try
             };
         });
 
-    // 3️⃣ Controllers + FluentValidation
+    // 3. Controllers + FluentValidation
     builder.Services.AddControllers();
     builder.Services.AddFluentValidationAutoValidation();
     builder.Services.AddValidatorsFromAssemblyContaining<CreateFlowerValidator>();
 
-    // 4️⃣ CORS
+    // 4. CORS (Vercel Bağlantısı İçin Kritik)
     builder.Services.AddCors(options =>
     {
         options.AddPolicy("AllowAll", policy =>
@@ -65,7 +68,7 @@ try
 
     builder.Services.AddEndpointsApiExplorer();
 
-    // 5️⃣ Swagger + JWT
+    // 5. Swagger Setup
     builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new OpenApiInfo
@@ -100,42 +103,37 @@ try
         });
     });
 
-    // 6️⃣ Dependency Injection
+    // 6. Dependency Injection (Repository'ler)
     builder.Services.AddScoped<IFlowerRepository, FlowerRepository>();
     builder.Services.AddScoped<IUserRepository, UserRepository>();
 
     var app = builder.Build();
 
     // =======================
-    // 7️⃣ MIDDLEWARE PIPELINE
+    // 7. MIDDLEWARE PIPELINE
     // =======================
 
-    if (app.Environment.IsDevelopment())
+    // KRİTİK DEĞİŞİKLİK: Swagger artık if bloğu dışında!
+    // SmartASP (Production) ortamında da Swagger'ı görebileceğiz.
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
     {
-        app.UseSwagger();
-        app.UseSwaggerUI();
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "CicekSepeti API V1");
+        c.RoutePrefix = "swagger"; // Url sonuna /swagger yazınca gelir
+    });
 
-        // SEQ UI'YI OTOMATİK AÇ
-        try
-        {
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = "http://localhost:5341",
-                UseShellExecute = true
-            });
-        }
-        catch { }
-    }
-
+    // Request Loglama
     app.UseSerilogRequestLogging();
 
     app.UseHttpsRedirection();
 
-    // 🔧 BAKIM MODU MIDDLEWARE (🔥 DOĞRU YER)
+    // Bakım Modu Middleware
     app.UseMiddleware<MaintenanceMiddleware>();
 
+    // CORS - Auth'dan önce olmalı!
     app.UseCors("AllowAll");
 
+    // Kimlik Doğrulama ve Yetkilendirme
     app.UseAuthentication();
     app.UseAuthorization();
 

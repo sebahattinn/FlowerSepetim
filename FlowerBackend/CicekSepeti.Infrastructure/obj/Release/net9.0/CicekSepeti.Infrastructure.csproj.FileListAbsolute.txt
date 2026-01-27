@@ -13,3 +13,4 @@ C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructu
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\refint\CicekSepeti.Infrastructure.dll
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.pdb
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\ref\CicekSepeti.Infrastructure.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Infrastructure\obj\Release\net9.0\CicekSepeti.Infrastructure.sourcelink.json

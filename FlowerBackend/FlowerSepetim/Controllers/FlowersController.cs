@@ -25,7 +25,7 @@ namespace CicekSepeti.API.Controllers
             return Ok(flowers);
         }
 
-        // 🌟 YENİ: GET api/flowers/featured
+        //  YENİ: GET api/flowers/featured
         [HttpGet("featured")]
         public async Task<IActionResult> GetFeatured()
         {
@@ -48,7 +48,7 @@ namespace CicekSepeti.API.Controllers
                     request.Price,
                     request.Stock,
                     request.CategoryId,
-                    request.IsFeatured // 👈 DTO'da bu alan olmalı!
+                    request.IsFeatured //  DTO'da bu alan olmalı!
                 );
 
                 var id = await _flowerRepository.AddAsync(newFlower);
@@ -95,7 +95,7 @@ namespace CicekSepeti.API.Controllers
             return Ok("Güncellendi");
         }
 
-        // ... Delete, GetCategories, AddCategory aynı kalıyor ...
+        // ... Delete, GetCategories, AddCategory aynı kalıyor ...  Burada ufak bir soft delete durumu söz konusu
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

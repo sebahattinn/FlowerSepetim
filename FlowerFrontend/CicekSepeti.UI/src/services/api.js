@@ -2,9 +2,13 @@ import axios from 'axios'
 import router from '../router'
 
 // 🔗 Backend Base URL
+// DİKKAT: Burayı sadece '/api' yaptık. 
+// Çünkü vercel.json dosyası "/api" ile başlayan her şeyi senin SmartASP sunucuna gizlice iletecek.
 const api = axios.create({
- //aseURL: 'https://localhost:7123/api',
-    baseURL: 'https//sebahattin16-001-site1.jtempurl.com/api',
+  baseURL: '/api',
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 /* ================================
@@ -31,9 +35,9 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config
 
-    // 🌐 Network / Backend kapalıysa
+    // 🌐 Network / Backend kapalıysa veya hata döndüyse
     if (!error.response) {
-      console.error('Sunucuya ulaşılamıyor!')
+      console.error('Sunucuya ulaşılamıyor veya Ağ hatası!')
       return Promise.reject(error)
     }
 
@@ -49,10 +53,10 @@ api.interceptors.response.use(
           throw new Error('Refresh token bulunamadı')
         }
 
-        // 🔥 Sessizce yeni token iste
-        // ⚠️ interceptor loop olmaması için axios (api değil)
+        // 🔥 KRİTİK DÜZELTME: Localhost yerine '/api' üzerinden istek atıyoruz.
+        // Böylece Vercel proxy'si burada da devreye giriyor.
         const response = await axios.post(
-          'https://localhost:7123/api/Auth/refresh-token',
+          '/api/Auth/refresh-token',
           {
             refreshToken: refreshToken,
           }
@@ -68,16 +72,12 @@ api.interceptors.response.use(
         localStorage.setItem('refreshToken', newRefreshToken)
 
         // 🔄 Axios header’ları güncelle
-        api.defaults.headers.common[
-          'Authorization'
-        ] = `Bearer ${newAccessToken}`
-
-        originalRequest.headers[
-          'Authorization'
-        ] = `Bearer ${newAccessToken}`
+        api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`
+        originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`
 
         // ▶️ İlk başarısız isteği tekrar dene
         return api(originalRequest)
+
       } catch (refreshError) {
         console.error('Oturum yenilenemedi, çıkış yapılıyor...', refreshError)
 

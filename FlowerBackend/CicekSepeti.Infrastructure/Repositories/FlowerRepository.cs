@@ -17,7 +17,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
         }
 
-        // 1️⃣ ADD FLOWER
+        // 1️. ADD FLOWER
         public async Task<int> AddAsync(Flower flower)
         {
             var sql = @"INSERT INTO Flowers 
@@ -44,7 +44,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return Convert.ToInt32(result);
         }
 
-        // 2️⃣ GET ALL FLOWERS
+        // 2️. GET ALL FLOWERS
         public async Task<IEnumerable<Flower>> GetAllAsync()
         {
             var sql = "SELECT * FROM Flowers";
@@ -75,7 +75,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return flowers;
         }
 
-        // 3️⃣ GET FLOWER BY ID
+        // 3️. GET FLOWER BY ID
         public async Task<Flower?> GetByIdAsync(int id)
         {
             var sql = "SELECT * FROM Flowers WHERE Id = @Id";
@@ -107,7 +107,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return null;
         }
 
-        // 4️⃣ UPDATE FLOWER
+        // 4️. UPDATE FLOWER
         public async Task UpdateAsync(Flower flower)
         {
             var sql = @"UPDATE Flowers 
@@ -136,7 +136,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             });
         }
 
-        // 5️⃣ DELETE (SOFT DELETE)
+        // 5️. DELETE (SOFT DELETE)
         public async Task DeleteAsync(int id)
         {
             var sql = "UPDATE Flowers SET IsActive = 0 WHERE Id = @Id";
@@ -144,14 +144,14 @@ namespace CicekSepeti.Infrastructure.Repositories
             await connection.ExecuteAsync(sql, new { Id = id });
         }
 
-        // 6️⃣ GET FEATURED FLOWERS
+        // 6️. GET FEATURED FLOWERS
         public async Task<IEnumerable<Flower>> GetFeaturedFlowersAsync()
         {
             var sql = "SELECT * FROM Flowers WHERE IsFeatured = 1 AND IsActive = 1";
             return await GetAllBySqlAsync(sql);
         }
 
-        // 7️⃣ GET CATEGORIES
+        // 7️. GET CATEGORIES
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
             var sql = "SELECT * FROM Categories";
@@ -159,7 +159,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return await connection.QueryAsync<Category>(sql);
         }
 
-        // 8️⃣ ADD CATEGORY
+        // 8️. ADD CATEGORY
         public async Task<int> AddCategoryAsync(string categoryName)
         {
             var slug = categoryName.ToSlug();
@@ -182,7 +182,7 @@ namespace CicekSepeti.Infrastructure.Repositories
         // 🔧 BAKIM MODU (SITE SETTINGS)
         // ==============================
 
-        // 9️⃣ GET MAINTENANCE STATE
+        // 9️. GET MAINTENANCE STATE
         public async Task<bool> GetMaintenanceStateAsync()
         {
             var sql = "SELECT TOP 1 IsMaintenanceMode FROM SiteSettings";
@@ -193,7 +193,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return result ?? false;
         }
 
-        // 🔟 UPDATE MAINTENANCE STATE
+        //  UPDATE MAINTENANCE STATE
         public async Task UpdateMaintenanceStateAsync(bool isMaintenance)
         {
             var sql = @"
@@ -206,7 +206,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             await connection.ExecuteAsync(sql, new { State = isMaintenance });
         }
 
-        // 🔁 PRIVATE HELPER (isteğe bağlı ama temiz)
+        //  PRIVATE HELPER (isteğe bağlı ama temiz)
         private async Task<IEnumerable<Flower>> GetAllBySqlAsync(string sql)
         {
             var flowers = new List<Flower>();

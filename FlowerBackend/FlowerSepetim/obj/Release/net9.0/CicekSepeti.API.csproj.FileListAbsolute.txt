@@ -92,3 +92,4 @@ C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Releas
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Release\net9.0\CicekSepeti.API.pdb
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Release\net9.0\CicekSepeti.API.genruntimeconfig.cache
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Release\net9.0\ref\CicekSepeti.API.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\FlowerSepetim\obj\Release\net9.0\CicekSepeti.API.sourcelink.json

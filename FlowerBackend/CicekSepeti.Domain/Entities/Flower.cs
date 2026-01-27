@@ -13,9 +13,9 @@ public class Flower
     public decimal Price { get; private set; }
     public int StockQuantity { get; private set; }
     public bool IsActive { get; private set; }
-    public bool IsFeatured { get; private set; } // 🌟 YENİ: Vitrin Özelliği
+    public bool IsFeatured { get; private set; } //  Vitrin Özelliği
 
-    // ✅ Constructor (Create için)
+    //  Constructor (Create için)
     public Flower(
         string name,
         string? description,
@@ -24,7 +24,7 @@ public class Flower
         decimal price,
         int stockQuantity,
         int categoryId,
-        bool isFeatured = false) // Varsayılan false
+        bool isFeatured = false) 
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new DomainException("Çiçek ismi boş olamaz!");
@@ -46,7 +46,7 @@ public class Flower
         IsFeatured = isFeatured;
     }
 
-    // ✅ FACTORY METHOD (DB’den okuma için)
+    //  FACTORY METHOD (DB’den okuma için)
     public static Flower Load(
         int id,
         string name,
@@ -57,7 +57,7 @@ public class Flower
         int stockQuantity,
         int categoryId,
         bool isActive,
-        bool isFeatured) // 🌟 Load'a eklendi
+        bool isFeatured)
     {
         var flower = new Flower(
             name,

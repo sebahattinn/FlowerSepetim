@@ -1,4 +1,4 @@
-﻿using CicekSepeti.Domain.Interfaces; // ✅ Sadece Domain Interface'i tanıyor
+﻿using CicekSepeti.Domain.Interfaces; //  Sadece Domain Interface'i tanıyor
 
 namespace CicekSepeti.API.Middlewares
 {
@@ -17,7 +17,7 @@ namespace CicekSepeti.API.Middlewares
         // Service yok, aracı yok. Direkt Repository Pattern.
         public async Task Invoke(HttpContext context, IFlowerRepository repository)
         {
-            // 1. Veritabanından durumu sor
+            // 1. Veritabanından durumu soruyoruz.
             bool isMaintenance = await repository.GetMaintenanceStateAsync();
 
             if (isMaintenance)

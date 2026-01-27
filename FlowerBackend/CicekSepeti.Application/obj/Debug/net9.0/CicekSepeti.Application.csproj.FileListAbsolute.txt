@@ -13,3 +13,4 @@ C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\refint\CicekSepeti.Application.dll
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.pdb
 C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\ref\CicekSepeti.Application.dll
+C:\Users\sebahattin\Desktop\FlowerSepetim\FlowerBackend\CicekSepeti.Application\obj\Debug\net9.0\CicekSepeti.Application.sourcelink.json
