@@ -14,7 +14,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
         }
 
-        // 1️⃣ USER EKLE
+     
         public async Task<int> AddAsync(User user)
         {
             var sql = @"INSERT INTO Users 
@@ -32,7 +32,6 @@ namespace CicekSepeti.Infrastructure.Repositories
             command.Parameters.AddWithValue("@LastName", user.LastName);
             command.Parameters.AddWithValue("@Email", user.Email);
 
-            // 👇 DÜZELTME 1: Byte[] -> String (Base64) Çevrimi (DB nvarchar olduğu için)
             command.Parameters.AddWithValue("@PasswordHash", Convert.ToBase64String(user.PasswordHash));
             command.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(user.PasswordSalt));
 
@@ -43,7 +42,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return Convert.ToInt32(result);
         }
 
-        // 2️⃣ EMAIL İLE USER GETİR (Load Metodu ile)
+       
         public async Task<User?> GetByEmailAsync(string email)
         {
             var sql = "SELECT * FROM Users WHERE Email = @Email";
@@ -57,8 +56,6 @@ namespace CicekSepeti.Infrastructure.Repositories
             using var reader = await command.ExecuteReaderAsync();
             if (!await reader.ReadAsync()) return null;
 
-            // 👇 DÜZELTME 2: String (Base64) -> Byte[] Çevrimi
-            // Veritabanından gelen string'i tekrar byte dizisine çeviriyoruz.
             byte[] hashBytes = Convert.FromBase64String(reader["PasswordHash"].ToString()!);
             byte[] saltBytes = Convert.FromBase64String(reader["PasswordSalt"].ToString()!);
 
@@ -68,8 +65,8 @@ namespace CicekSepeti.Infrastructure.Repositories
                 firstName: reader["FirstName"].ToString()!,
                 lastName: reader["LastName"].ToString()!,
                 email: reader["Email"].ToString()!,
-                passwordHash: hashBytes, // Artık cast hatası vermez
-                passwordSalt: saltBytes, // Artık cast hatası vermez
+                passwordHash: hashBytes, 
+                passwordSalt: saltBytes, //cache hatası alıyodum buralarda bne
                 isActive: Convert.ToBoolean(reader["IsActive"]),
                 createdAt: Convert.ToDateTime(reader["CreatedAt"]),
                 refreshToken: reader["RefreshToken"] != DBNull.Value ? reader["RefreshToken"].ToString() : null,
@@ -77,7 +74,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             );
         }
 
-        // 3️⃣ REFRESH TOKEN İLE USER GETİR (Load Metodu ile)
+       
         public async Task<User?> GetByRefreshTokenAsync(string refreshToken)
         {
             var sql = "SELECT * FROM Users WHERE RefreshToken = @RefreshToken";
@@ -91,7 +88,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             using var reader = await command.ExecuteReaderAsync();
             if (!await reader.ReadAsync()) return null;
 
-            // 👇 DÜZELTME 3: Burada da çevrim yapıyoruz
+            
             byte[] hashBytes = Convert.FromBase64String(reader["PasswordHash"].ToString()!);
             byte[] saltBytes = Convert.FromBase64String(reader["PasswordSalt"].ToString()!);
 
@@ -110,7 +107,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             );
         }
 
-        // 4️⃣ REFRESH TOKEN GÜNCELLE
+       
         public async Task UpdateRefreshTokenAsync(int userId, string refreshToken, DateTime expiryTime)
         {
             var sql = @"UPDATE Users 

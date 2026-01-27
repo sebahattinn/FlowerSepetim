@@ -15,7 +15,7 @@ public class Flower
     public bool IsActive { get; private set; }
     public bool IsFeatured { get; private set; } //  Vitrin Özelliği
 
-    //  Constructor (Create için)
+    //  Constructor  Create için
     public Flower(
         string name,
         string? description,

@@ -1,4 +1,4 @@
-﻿using CicekSepeti.Domain.Interfaces; //  Sadece Domain Interface'i tanıyor
+﻿using CicekSepeti.Domain.Interfaces; 
 
 namespace CicekSepeti.API.Middlewares
 {
@@ -13,18 +13,17 @@ namespace CicekSepeti.API.Middlewares
             _logger = logger;
         }
 
-        // DİKKAT: Method Injection ile direkt IFlowerRepository alıyoruz.
-        // Service yok, aracı yok. Direkt Repository Pattern.
+        
         public async Task Invoke(HttpContext context, IFlowerRepository repository)
         {
-            // 1. Veritabanından durumu soruyoruz.
+           
             bool isMaintenance = await repository.GetMaintenanceStateAsync();
 
             if (isMaintenance)
             {
                 var path = context.Request.Path.Value?.ToLower();
 
-                // 2. İzinliler (Login, Toggle, Swagger)
+               
                 bool isAllowed = path != null && (
                     path.Contains("/api/auth/login") ||
                     path.Contains("/api/settings/toggle") ||

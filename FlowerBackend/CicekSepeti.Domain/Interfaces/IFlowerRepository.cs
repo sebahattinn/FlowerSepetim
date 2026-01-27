@@ -6,7 +6,7 @@ namespace CicekSepeti.Domain.Interfaces
     {
         Task<IEnumerable<Flower>> GetAllAsync();
 
-        // 👇 Tek ve net tanım (Nullable dönebilir ?)
+     
         Task<Flower?> GetByIdAsync(int id);
 
         Task<int> AddAsync(Flower flower);

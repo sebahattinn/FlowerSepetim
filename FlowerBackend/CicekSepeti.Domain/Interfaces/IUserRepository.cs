@@ -7,10 +7,10 @@ namespace CicekSepeti.Domain.Interfaces
         // Login için
         Task<User?> GetByEmailAsync(string email);
 
-        // Kayıt için
+        // register için
         Task<int> AddAsync(User user);
 
-        // 👇 EKSİK OLAN METODLAR EKLENDİ
+       
         // Refresh Token kontrolü ve güncellemesi için şart
         Task<User?> GetByRefreshTokenAsync(string refreshToken);
         Task UpdateRefreshTokenAsync(int userId, string refreshToken, DateTime expiryDate);

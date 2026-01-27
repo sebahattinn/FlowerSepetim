@@ -27,9 +27,6 @@ namespace CicekSepeti.API.Controllers
             _configuration = configuration;
         }
 
-        // =========================
-        // 1️. KAYIT OL
-        // =========================
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserDto request)
         {
@@ -40,15 +37,13 @@ namespace CicekSepeti.API.Controllers
                 return BadRequest(new { message = "Bu email adresi zaten kullanılıyor." });
             }
 
-            // 2. Şifre Hashleme
             PasswordHelper.CreatePasswordHash(
                 request.Password,
                 out byte[] passwordHash,
                 out byte[] passwordSalt
             );
 
-            // 3. Kullanıcı oluşturma (DDD Factory Method)
-            // Böylece Controller'ın 'User' property'si ile karışmıyor.
+          
             var user = UserEntity.Create(
                 request.FirstName,
                 request.LastName,
@@ -65,9 +60,7 @@ namespace CicekSepeti.API.Controllers
             });
         }
 
-        // =========================
-        // 2️. GİRİŞ YAP
-        // =========================
+   
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -100,9 +93,7 @@ namespace CicekSepeti.API.Controllers
             });
         }
 
-        // =========================
-        // 3️. REFRESH TOKEN
-        // =========================
+       
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
         {
@@ -129,9 +120,7 @@ namespace CicekSepeti.API.Controllers
             });
         }
 
-        // =========================
-        //  ACCESS TOKEN
-        // =========================
+   
         private string CreateToken(UserEntity user) 
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
@@ -173,9 +162,7 @@ namespace CicekSepeti.API.Controllers
         }
     }
 
-    //  YEREL DTOs
-    // Not: RegisterUserDto Application katmanında olduğu için buraya eklemedik.
-    // Eğer LoginRequest ve RefreshTokenRequest'i Application katmanına taşımadıysan burada durmaları gerekir.
+   
     public record LoginRequest(string Email, string Password);
     public record RefreshTokenRequest(string RefreshToken);
 }

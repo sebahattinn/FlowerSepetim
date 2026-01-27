@@ -17,9 +17,6 @@ public class User
     public bool IsActive { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
-    //  PRIVATE CONSTRUCTOR (ORM ve Dapper için)
-    // CS8618 Uyarılarını çözmek için "null!" ataması yapıyoruz.
-    // Bu, derleyiciye "Merak etme, veritabanından dolacak bunlar" demektir.
     private User()
     {
         FirstName = null!;
@@ -29,11 +26,10 @@ public class User
         PasswordSalt = null!;
     }
 
-    //  FACTORY METHOD: YENİ KULLANICI (Controller Burayı Çağırıyor)
-    // O garip FileSystem hatasını çözen yer burası! 
+ 
     public static User Create(string firstName, string lastName, string email, byte[] passwordHash, byte[] passwordSalt)
     {
-        // Validasyonlar (Basit Domain Kuralları)
+
         if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentException("İsim boş olamaz");
         if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Email boş olamaz");
 
@@ -50,7 +46,7 @@ public class User
         };
     }
 
-    //  LOAD METHOD: VERİTABANINDAN YÜKLEME
+   
     public static User Load(int id, int roleId, string firstName, string lastName, string email, byte[] passwordHash, byte[] passwordSalt, bool isActive, DateTime createdAt, string? refreshToken, DateTime? refreshTokenExpiryTime)
     {
         return new User

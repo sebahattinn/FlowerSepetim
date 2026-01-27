@@ -2,10 +2,10 @@ import axios from 'axios'
 import router from '../router'
 
 // 🔗 Backend Base URL
-// DİKKAT: Burayı sadece '/api' yaptık. 
-// Çünkü vercel.json dosyası "/api" ile başlayan her şeyi senin SmartASP sunucuna gizlice iletecek.
+// Development: Direkt SmartASP backend'e bağlanır
+// Production: Vercel proxy (/api) kullanır
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   headers: {
     'Content-Type': 'application/json'
   }

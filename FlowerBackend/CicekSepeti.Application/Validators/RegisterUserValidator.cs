@@ -30,13 +30,13 @@ namespace CicekSepeti.Application.Validators
                 .Matches("[A-Z]").WithMessage("Şifre en az bir büyük harf içermelidir.")
                 .Matches("[a-z]").WithMessage("Şifre en az bir küçük harf içermelidir.")
                 .Matches("[0-9]").WithMessage("Şifre en az bir rakam içermelidir.");
-            // İstersen özel karakter de zorunlu kılabilirsin: .Matches("[^a-zA-Z0-9]")
+           
         }
 
-        // Helper Metot: Sadece harf olsun (Opsiyonel)
+        
         private bool IsValidName(string name)
         {
-            // Basitçe: Sayı içermesin diyebiliriz veya regex ile daha katı olabiliriz.
+            
             return name.All(char.IsLetter);
         }
     }

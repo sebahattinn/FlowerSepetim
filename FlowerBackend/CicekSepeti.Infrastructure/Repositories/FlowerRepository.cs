@@ -178,11 +178,8 @@ namespace CicekSepeti.Infrastructure.Repositories
             return Convert.ToInt32(result);
         }
 
-        // ==============================
-        // 🔧 BAKIM MODU (SITE SETTINGS)
-        // ==============================
 
-        // 9️. GET MAINTENANCE STATE
+      
         public async Task<bool> GetMaintenanceStateAsync()
         {
             var sql = "SELECT TOP 1 IsMaintenanceMode FROM SiteSettings";
@@ -193,7 +190,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return result ?? false;
         }
 
-        //  UPDATE MAINTENANCE STATE
+    
         public async Task UpdateMaintenanceStateAsync(bool isMaintenance)
         {
             var sql = @"
@@ -206,7 +203,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             await connection.ExecuteAsync(sql, new { State = isMaintenance });
         }
 
-        //  PRIVATE HELPER (isteğe bağlı ama temiz)
+       
         private async Task<IEnumerable<Flower>> GetAllBySqlAsync(string sql)
         {
             var flowers = new List<Flower>();

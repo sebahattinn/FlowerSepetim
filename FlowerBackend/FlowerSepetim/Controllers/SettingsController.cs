@@ -8,7 +8,7 @@ namespace CicekSepeti.API.Controllers
     [ApiController]
     public class SettingsController : ControllerBase
     {
-        private readonly IFlowerRepository _repo; // Direkt Repo
+        private readonly IFlowerRepository _repo; 
 
         public SettingsController(IFlowerRepository repo)
         {

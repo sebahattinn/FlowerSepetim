@@ -55,7 +55,7 @@
       </div>
 
       <div class="bg-white p-4 mb-6 shadow-sm rounded-sm border border-gray-100 flex items-center gap-4">
-        <span class="text-2xl">🔍</span>
+        <span class="text-2xl"></span>
         <input 
           v-model="searchQuery" 
           type="text" 
@@ -100,7 +100,7 @@
                         class="object-cover w-full h-full" 
                       />
                       <div :style="{ display: (flower.imageUrl && flower.imageUrl.startsWith('http')) ? 'none' : 'flex' }" class="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400">
-                        <span class="text-2xl">🌸</span>
+                        <span class="text-2xl"></span>
                       </div>
                     </div>
                   </div>
@@ -257,7 +257,7 @@ const isEditing = ref(false);
 const editingId = ref(null);
 const newCategoryName = ref('');
 const searchQuery = ref(''); 
-const maintenanceMode = ref(false); // 🚧 YENİ: Bakım Modu Durumu
+const maintenanceMode = ref(false); //  YENİ: Bakım Modu Durumu
 
 const form = reactive({
   name: '', price: 0, stock: 0, imageUrl: '', description: '', categoryId: '', color: '', isActive: true, isFeatured: false 
@@ -313,9 +313,9 @@ const toggleMaintenance = async () => {
         maintenanceMode.value = newState;
 
         if(newState) {
-            toast.warning("SİTE BAKIMA ALINDI! 🚧 (Sadece Adminler Görebilir)");
+            toast.warning("SİTE BAKIMA ALINDI!  (Sadece Adminler Görebilir)");
         } else {
-            toast.success("SİTE YAYINA AÇILDI! 🚀");
+            toast.success("SİTE YAYINA AÇILDI! ");
         }
     } catch (error) {
         console.error(error);
@@ -325,7 +325,7 @@ const toggleMaintenance = async () => {
     }
 }
 
-// 🌟 TEK TIKLA VİTRİN
+//  TEK TIKLA VİTRİN
 const toggleFeatured = async (flower) => {
     const originalState = flower.isFeatured;
     flower.isFeatured = !originalState;
@@ -374,7 +374,7 @@ const saveCategory = async () => {
         categories.value.push({ id: response.data.id, name: response.data.name });
         form.categoryId = response.data.id;
         document.getElementById('category_modal').close();
-        toast.success("Kategori eklendi! 📂"); 
+        toast.success("Kategori eklendi! "); 
     } catch (error) {
         toast.error("Kategori eklenemedi."); 
     }
@@ -387,10 +387,10 @@ const saveFlower = async () => {
 
     if (isEditing.value) {
       await api.put(`/Flowers/${editingId.value}`, payload);
-      toast.success("Çiçek güncellendi! 🌸"); 
+      toast.success("Çiçek güncellendi! "); 
     } else {
       await api.post('/Flowers', payload);
-      toast.success("Yeni çiçek eklendi! 🌸"); 
+      toast.success("Yeni çiçek eklendi! "); 
     }
     document.getElementById('flower_modal').close();
     await loadData();

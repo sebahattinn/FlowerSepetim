@@ -14,6 +14,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
+		<PackageReference Include="Moq" Version="4.20.72" />
 		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
 		<PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0" />
 		<PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
@@ -22,6 +23,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\CicekSepeti.Application\CicekSepeti.Application.csproj" />
+		<ProjectReference Include="..\CicekSepeti.Domain\CicekSepeti.Domain.csproj" />
 		<ProjectReference Include="..\CicekSepeti.Infrastructure\CicekSepeti.Infrastructure.csproj" />
 	</ItemGroup>
 

@@ -9,10 +9,12 @@
 	<ItemGroup>
 		<PackageReference Include="Dapper" Version="2.1.66" />
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.2" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\CicekSepeti.Application\CicekSepeti.Application.csproj" />
 		<ProjectReference Include="..\CicekSepeti.Domain\CicekSepeti.Domain.csproj" />
 	</ItemGroup>
 

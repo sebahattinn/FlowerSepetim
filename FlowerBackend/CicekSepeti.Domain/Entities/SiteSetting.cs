@@ -17,7 +17,7 @@ public class SiteSetting
    
     public void ChangeMaintenanceMode(bool status)
     {
-       //kurallar buraya gelebilir ne bilim yılbaşı bakıma alınamaz gibisinden.
+       //kurallar buraya gelebilir ne bilim yılbaşı bakıma alınamaz gibisinden. zart zurt
         IsMaintenanceMode = status;
     }
 }
