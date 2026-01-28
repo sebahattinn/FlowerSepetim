@@ -6,21 +6,21 @@ import FlowerDetailView from '../views/FlowerDetailView.vue'
 import CollectionView from '../views/CollectionView.vue'
 import AdminDashboardView from '../views/AdminDashboardView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
-import UnauthorizedView from '../views/UnauthorizedView.vue' // 👈 401 IMPORT
-import ForbiddenView from '../views/ForbiddenView.vue' // 👈 403 IMPORT
+import UnauthorizedView from '../views/UnauthorizedView.vue' //  401 IMPORT
+import ForbiddenView from '../views/ForbiddenView.vue' //  403 IMPORT
 import { useAuthStore } from '../stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // 🏠 HOME
+    //  HOME
     {
       path: '/',
       name: 'home',
       component: HomeView
     },
 
-    // 🔐 AUTH (Misafir + Footer Gizli)
+    //  AUTH (Misafir + Footer Gizli)
     {
       path: '/login',
       name: 'login',
@@ -40,35 +40,35 @@ const router = createRouter({
       }
     },
 
-    // 🌸 ÇİÇEK DETAY
+    //  ÇİÇEK DETAY
     {
       path: '/flower/:id',
       name: 'flower-detail',
       component: FlowerDetailView
     },
 
-    // 📦 KOLEKSİYON
+    //  KOLEKSİYON
     {
       path: '/collection',
       name: 'collection',
       component: CollectionView
     },
 
-    // 📖 HİKAYEMİZ
+    // HİKAYEMİZ
     {
       path: '/story',
       name: 'story',
       component: () => import('../views/StoryView.vue')
     },
 
-    // 📞 İLETİŞİM
+    //  İLETİŞİM
     {
       path: '/contact',
       name: 'contact',
       component: () => import('../views/ContactView.vue')
     },
 
-    // 🔥 SADECE ADMİN (Auth + Rol + Footer Gizli)
+    //  SADECE ADMİN (Auth + Rol + Footer Gizli)
     {
       path: '/admin',
       name: 'admin',
@@ -80,7 +80,7 @@ const router = createRouter({
       }
     },
 
-    // ⚠️ HATA SAYFALARI
+    //  HATA SAYFALARI
     {
       path: '/401',
       name: 'unauthorized',
@@ -98,7 +98,7 @@ const router = createRouter({
       }
     },
 
-    // ❌ 404 – EN SONA!
+    //  404 – EN SONA!
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',

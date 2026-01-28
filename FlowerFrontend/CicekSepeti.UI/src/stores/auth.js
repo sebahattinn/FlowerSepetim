@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import api from '../services/api';
 import router from '../router';
-import { jwtDecode } from 'jwt-decode'; // 👈 JWT çözümleme
+import { jwtDecode } from 'jwt-decode'; //  JWT çözümleme
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -15,7 +15,7 @@ export const useAuthStore = defineStore('auth', {
     },
 
     actions: {
-        // 🧠 TOKEN'I ÇÖZ → USER STATE'E YAZ
+        //  TOKEN'I ÇÖZ → USER STATE'E YAZ
         decodeAndSetUser() {
             if (!this.token) return;
 
@@ -50,7 +50,7 @@ export const useAuthStore = defineStore('auth', {
                     localStorage.setItem('refreshToken', response.data.refreshToken);
                 }
 
-                // 🔥 Token gelir gelmez decode
+                //  Token gelir gelmez decode
                 this.decodeAndSetUser();
 
                 router.push('/');
@@ -78,7 +78,7 @@ export const useAuthStore = defineStore('auth', {
             this.token = null;
             this.user = null;
 
-            // 🔥 diğer sekmeleri tetikler
+            //  diğer sekmeleri tetikler
             localStorage.removeItem('token');
             localStorage.removeItem('refreshToken');
             localStorage.removeItem('rememberedEmail');

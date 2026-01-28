@@ -3,20 +3,20 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-// 🎨 Global CSS
+//  Global CSS
 import './style.css'
 
-// 🍞 TOAST IMPORTLARI
+//  TOAST IMPORTLARI
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
 const app = createApp(App)
 
-// 🧠 STATE & ROUTER
+//  STATE & ROUTER
 app.use(createPinia())
 app.use(router)
 
-// 🍞 TOAST AYARLARI
+//  TOAST AYARLARI
 const toastOptions = {
   position: 'top-right',
   timeout: 3000,
@@ -32,8 +32,8 @@ const toastOptions = {
   rtl: false
 }
 
-// 🔥 Toast aktif
+//  Toast aktif
 app.use(Toast, toastOptions)
 
-// 🚀 APP MOUNT
+//  APP MOUNT
 app.mount('#app')

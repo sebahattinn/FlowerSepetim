@@ -1,4 +1,4 @@
-// 🎨 Design System - Central Design Tokens
+//  Design System - Central Design Tokens
 // Bu dosyayı tüm projeye import ederek tutarlı tasarım sağlıyoruz
 
 export const colors = {
