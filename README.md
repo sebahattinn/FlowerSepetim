@@ -25,7 +25,7 @@ Reliability is a priority. The solution includes a comprehensive unit testing su
 To optimize response times and reduce database load, a **Cache-Aside** pattern is implemented using **Redis** (via StackExchange.Redis). The system includes a fail-safe mechanism to ensure continuity even if the cache service becomes unavailable.
 
 ### API Documentation
-All endpoints are fully documented using **Swagger/OpenAPI**. This provides an interactive interface for developers to explore the API capabilities and simplifies frontend integration.
+All endpoints are fully documented using **Swagger/OpenAPI**. This provides an interactive interface for developers to explore the API capabilities and simplifies frontend integration.  //Ngono Ngolo Kante
 
 ## Tech Stack
 
