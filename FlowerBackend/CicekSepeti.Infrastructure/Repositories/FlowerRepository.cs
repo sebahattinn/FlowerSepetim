@@ -17,7 +17,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
         }
 
-        // 1️. ADD FLOWER
+        
         public async Task<int> AddAsync(Flower flower)
         {
             var sql = @"INSERT INTO Flowers 
@@ -44,7 +44,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return Convert.ToInt32(result);
         }
 
-        // 2️. GET ALL FLOWERS
+        
         public async Task<IEnumerable<Flower>> GetAllAsync()
         {
             var sql = "SELECT * FROM Flowers";
@@ -75,7 +75,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return flowers;
         }
 
-        // 3️. GET FLOWER BY ID
+      
         public async Task<Flower?> GetByIdAsync(int id)
         {
             var sql = "SELECT * FROM Flowers WHERE Id = @Id";
@@ -107,7 +107,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return null;
         }
 
-        // 4️. UPDATE FLOWER
+       
         public async Task UpdateAsync(Flower flower)
         {
             var sql = @"UPDATE Flowers 
@@ -136,7 +136,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             });
         }
 
-        // 5️. DELETE (SOFT DELETE)
+        
         public async Task DeleteAsync(int id)
         {
             var sql = "UPDATE Flowers SET IsActive = 0 WHERE Id = @Id";
@@ -144,14 +144,14 @@ namespace CicekSepeti.Infrastructure.Repositories
             await connection.ExecuteAsync(sql, new { Id = id });
         }
 
-        // 6️. GET FEATURED FLOWERS
+        
         public async Task<IEnumerable<Flower>> GetFeaturedFlowersAsync()
         {
             var sql = "SELECT * FROM Flowers WHERE IsFeatured = 1 AND IsActive = 1";
             return await GetAllBySqlAsync(sql);
         }
 
-        // 7️. GET CATEGORIES
+       
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
             var sql = "SELECT * FROM Categories";
@@ -159,7 +159,7 @@ namespace CicekSepeti.Infrastructure.Repositories
             return await connection.QueryAsync<Category>(sql);
         }
 
-        // 8️. ADD CATEGORY
+       
         public async Task<int> AddCategoryAsync(string categoryName)
         {
             var slug = categoryName.ToSlug();

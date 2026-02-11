@@ -1,4 +1,10 @@
 <template>
+  <!-- Kar Yağışı Efekti -->
+  <SnowEffect />
+
+  <!-- Sevgililer Günü Teması -->
+  <ValentineTheme />
+
   <!-- Sayfa içeriği -->
   <RouterView />
 
@@ -11,6 +17,8 @@ import { onMounted, onUnmounted, computed } from 'vue'
 import { RouterView, useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from './stores/auth'
 import TheFooter from './components/TheFooter.vue'
+import SnowEffect from './components/SnowEffect.vue'
+import ValentineTheme from './components/ValentineTheme.vue'
 
 const authStore = useAuthStore()
 const router = useRouter()

@@ -9,13 +9,10 @@
     using Microsoft.OpenApi.Models;
     using Serilog;
     using System.Text;
-    // 🔥 REDIS İÇİN GEREKLİ USINGLER
+    
     using CicekSepeti.Application.Interfaces;
     using CicekSepeti.Infrastructure.Services;
 
-    // =======================
-    // PROGRAM.CS BAŞI – PRODUCTION READY
-    // =======================
 
     Log.Logger = new LoggerConfiguration()
         .MinimumLevel.Debug()
@@ -26,10 +23,10 @@
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // 1. Serilog Entegrasyonu
+       
         builder.Host.UseSerilog();
 
-        // 2. JWT Authentication Ayarları
+       
         var jwtSettings = builder.Configuration.GetSection("JwtSettings");
         var secretKey = jwtSettings["SecretKey"];
 
@@ -50,12 +47,13 @@
                 };
             });
 
-        // 3. Controllers + FluentValidation
+    builder.Services.AddTransient
+       
         builder.Services.AddControllers();
         builder.Services.AddFluentValidationAutoValidation();
         builder.Services.AddValidatorsFromAssemblyContaining<CreateFlowerValidator>();
 
-        // 4. CORS (Vercel Bağlantısı İçin Kritik)
+        
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowAll", policy =>
@@ -68,7 +66,7 @@
 
         builder.Services.AddEndpointsApiExplorer();
 
-        // 5. Swagger Setup
+    
         builder.Services.AddSwaggerGen(c =>
         {
             c.SwaggerDoc("v1", new OpenApiInfo
@@ -102,29 +100,26 @@
                 }
             });
         });
-
-        // 6. Dependency Injection (Repository'ler)
+   
+        
         builder.Services.AddScoped<IFlowerRepository, FlowerRepository>();
         builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-        // 🔥🔥 7. REDIS ENTEGRASYONU (BURAYI EKLEDİM) 🔥🔥
-        // Connection string'i appsettings.json'dan okur
+        
+        
         builder.Services.AddStackExchangeRedisCache(options =>
         {
             options.Configuration = builder.Configuration.GetConnectionString("Redis");
             options.InstanceName = "CicekSepeti_";
         });
 
-        // Bizim yazdığımız ICacheService'i sisteme tanıtıyoruz
+        
         builder.Services.AddScoped<ICacheService, RedisCacheService>();
 
 
         var app = builder.Build();
 
-        // =======================
-        // 8. MIDDLEWARE PIPELINE
-        // =======================
-
+     
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
