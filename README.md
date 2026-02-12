@@ -43,3 +43,4 @@ All endpoints are fully documented using **Swagger/OpenAPI**. This provides an i
 2. Apply migrations to initialize the database schema.
 3. Build and run the API project. The Swagger UI will be available at `/swagger/index.html`.
 4. Navigate to the frontend directory, install dependencies, and run the development server.
+5. Run and fun enjoy
